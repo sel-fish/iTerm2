@@ -468,6 +468,11 @@ DQ
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="984"/>
+                            <menuItem title="Open Selection as URL" keyEquivalent="i" id="961">
+                                <connections>
+                                    <action selector="browse:" target="-1" id="963"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Open Autocomplete..." keyEquivalent=";" id="1144">
                                 <connections>
                                     <action selector="openAutocomplete:" target="-1" id="1146"/>
