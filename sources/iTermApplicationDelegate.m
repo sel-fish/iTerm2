@@ -844,13 +844,17 @@ static BOOL hasBecomeActive = NO;
 
 - (IBAction)showPrefWindow:(id)sender
 {
+    NSLog(@"fenqi begin showPrefWindow...");
     [[PreferencePanel sharedInstance] run];
     [[[PreferencePanel sharedInstance] window] makeKeyAndOrderFront:self];
+    NSLog(@"fenqi end showPrefWindow...");
 }
 
 - (IBAction)showBookmarkWindow:(id)sender
 {
+    NSLog(@"fenqi begin showBookmarkWindow...");
     [[iTermProfilesWindowController sharedInstance] showWindow:sender];
+    NSLog(@"fenqi end showBookmarkWindow...");
 }
 
 - (void)newSessionMenu:(NSMenu*)superMenu

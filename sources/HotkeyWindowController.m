@@ -433,6 +433,7 @@ void OnHotKeyEvent(void)
             [[HotkeyWindowController sharedInstance] showHotKeyWindow];
         }
     } else if ([NSApp isActive]) {
+        HKWLog(@"NSApp isActive");
         NSWindow* prefWindow = [prefPanel window];
         NSWindow* appKeyWindow = [[NSApplication sharedApplication] keyWindow];
         if (prefWindow != appKeyWindow ||
@@ -440,8 +441,10 @@ void OnHotKeyEvent(void)
             [NSApp hide:nil];
         }
     } else {
+        HKWLog(@"other options");
         iTermController* controller = [iTermController sharedInstance];
         int n = [controller numberOfTerminals];
+        HKWLog(@"numberOfTerminals is  %@ ", @(n));
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
         if (n == 0) {
             [controller newWindow:nil];
@@ -764,7 +767,9 @@ static CGEventRef OnTappedEvent(CGEventTapProxy proxy, CGEventType type, CGEvent
     if (!ad.workspaceSessionActive) {
         return;
     }
+    HKWLog(@"start OnHotKeyEvent");
     OnHotKeyEvent();
+    HKWLog(@"end OnHotKeyEvent");
 }
 
 - (void)requestAccessibilityPermissionMavericks {
